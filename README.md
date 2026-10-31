@@ -32,7 +32,8 @@ Turn every new browser tab into a personal productivity dashboard.
 
 The dashboard uses a dark navy interface with subtle purple and teal accents, rounded glass-style cards, and a responsive layout.
 
-<img width="902" height="416" alt="image" src="https://github.com/user-attachments/assets/c2c2c49c-ecb9-44b1-bb9f-cb6700cf1b68" />
+<img width="1241" height="644" alt="image" src="https://github.com/user-attachments/assets/5f48d552-1582-46c6-938a-588a2998d585" />
+
 
 
 ## 📦 Installation
