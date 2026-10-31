@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b14">
+<title>New Tab Pro — DEV PHENTOM</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ambient a"></div><div class="ambient b"></div>
+<div class="app">
+  <main>
+    <section class="welcome">
+      <button class="settings welcome-settings" id="settingsBtn" title="Settings" aria-label="Settings">⚙</button>
+      <div class="greeting" id="greeting">GOOD AFTERNOON</div>
+      <h1>Welcome back<span>.</span></h1>
+      <div class="date" id="date"></div>
+      <form class="search" id="searchForm">
+        <span class="search-icon">⌕</span>
+        <input id="searchInput" placeholder="Search with Brave or enter a website..." autocomplete="off">
+        <kbd>ENTER ↵</kbd>
+      </form>
+    </section>
+
+    <section class="dashboard" id="dashboard">
+      <article class="widget clock-widget" data-widget="clock" draggable="true">
+        <div class="widget-head"><div><span class="eyebrow">YOUR LOCAL TIME</span><h2>World of time</h2></div><span class="live"><i></i> LIVE</span></div>
+        <div class="clock-face" aria-label="Analog clock">
+          <div class="clock-ticks" id="clockTicks"></div>
+          <div class="clock-number n12">12</div><div class="clock-number n3">3</div><div class="clock-number n6">6</div><div class="clock-number n9">9</div>
+          <div class="hand hour" id="hourHand"></div><div class="hand minute" id="minuteHand"></div><div class="hand second" id="secondHand"></div><div class="pin"></div>
+        </div>
+        <div class="digital-time" id="digitalTime">00:00:00</div>
+        <div class="timezone">DHAKA · BANGLADESH (GMT+6)</div>
+      </article>
+
+      <article class="widget weather-widget" data-widget="weather" draggable="true">
+        <div class="widget-head"><span class="eyebrow">WEATHER</span><span class="weather-icon">☀</span></div>
+        <div class="weather-temp">—<sup>°</sup></div><div class="weather-state">Live weather not connected</div>
+        <div class="weather-foot">Connect a weather service to show local conditions.</div>
+      </article>
+
+      <article class="widget calendar-widget" data-widget="calendar" draggable="true">
+        <div class="widget-head"><div><span class="eyebrow">YOUR SCHEDULE</span><h2>Calendar</h2></div><span class="widget-symbol">▦</span></div>
+        <div class="calendar-date" id="calendarDate"></div>
+        <div class="calendar-sub" id="calendarSub"></div>
+        <div class="event-form"><input id="eventInput" placeholder="Add an event..."><button id="addEvent">＋</button></div>
+        <ul id="eventList" class="event-list"></ul>
+      </article>
+
+      <article class="widget tasks-widget" data-widget="tasks" draggable="true">
+        <div class="widget-head"><div><span class="eyebrow">STAY ON TRACK</span><h2>Today's tasks</h2></div><span class="counter" id="taskCounter">0 LEFT</span></div>
+        <form class="task-form" id="taskForm"><input id="taskInput" placeholder="Add a task..." maxlength="100"><button>＋</button></form>
+        <ul class="task-list" id="taskList"></ul>
+        <div class="empty" id="taskEmpty">Nothing here yet. Add your first task.</div>
+      </article>
+
+      <article class="widget links-widget" data-widget="links" draggable="true">
+        <div class="widget-head"><div><span class="eyebrow">ONE-CLICK ACCESS</span><h2>Shortcuts</h2></div><button class="small-add" id="addLink">＋ Add</button></div>
+        <div class="shortcut-grid" id="shortcutGrid"></div>
+      </article>
+
+      <article class="widget focus-widget" data-widget="focus" draggable="true">
+        <div class="widget-head"><span class="eyebrow">DEEP WORK</span><span class="widget-symbol">◷</span></div>
+        <div class="focus-time" id="focusTime">25:00</div><div class="focus-label" id="focusLabel">POMODORO SESSION</div>
+        <div class="focus-controls"><button id="focusStart">Start</button><button id="focusReset" class="muted-btn">Reset</button></div>
+      </article>
+
+      <article class="widget motivation-widget" data-widget="motivation" draggable="true">
+        <div class="widget-head"><span class="eyebrow">DAILY MOTIVATION</span><span class="widget-symbol">✦</span></div>
+        <div class="motivation-quote" id="motivationQuote"></div>
+        <div class="motivation-author" id="motivationAuthor"></div>
+        <button class="refresh" id="newMotivation">↻ New motivation</button>
+      </article>
+
+      <article class="widget quran-widget" data-widget="quran" draggable="true">
+        <div class="widget-head"><div><span class="eyebrow">DAILY AYAT</span><h2>Quran reminder</h2></div><span class="quran-mark">۞</span></div>
+        <div class="arabic" id="arabicAyat" dir="rtl"></div>
+        <div class="ayat-meaning" id="ayatMeaning"></div>
+        <div class="ayat-ref" id="ayatRef"></div>
+        <button class="refresh" id="nextAyat">↻ Another ayat</button>
+      </article>
+
+      <article class="widget notes-widget" data-widget="notes" draggable="true">
+        <div class="widget-head"><div><span class="eyebrow">YOUR THOUGHTS</span><h2>Quick notes</h2></div><span class="widget-symbol">✎</span></div>
+        <textarea id="notes" placeholder="Write your ideas, reminders or goals..."></textarea>
+        <div class="save-status" id="noteStatus">Saved locally as you type</div>
+      </article>
+    </section>
+  </main>
+
+  <footer><span>NEW TAB PRO <i>·</i> PERSONAL DASHBOARD</span><strong>BUILT BY <b>DEV PHENTOM</b></strong></footer>
+</div>
+
+<div class="modal-backdrop" id="linkModal"><div class="modal">
+  <div class="modal-head"><div><span class="eyebrow">PERSONALIZE</span><h2>Add a shortcut</h2></div><button class="close" data-close="linkModal">×</button></div>
+  <form id="linkForm"><label>Name</label><input id="linkName" required maxlength="22" placeholder="e.g. YouTube"><label>Website URL</label><input id="linkUrl" required type="url" placeholder="https://example.com"><div class="modal-actions"><button type="button" class="cancel" data-close="linkModal">Cancel</button><button class="primary">Save shortcut</button></div></form>
+</div></div>
+
+<div class="modal-backdrop" id="settingsModal"><div class="modal">
+  <div class="modal-head"><div><span class="eyebrow">DASHBOARD SETTINGS</span><h2>Customize your space</h2></div><button class="close" data-close="settingsModal">×</button></div>
+  <p class="settings-copy">Drag widgets to rearrange your dashboard. Your layout, shortcuts, tasks, events and notes are saved locally in this browser.</p>
+  <button class="reset-layout" id="resetLayout">Reset widget layout</button>
+</div></div>
+<script src="app.js"></script>
+</body></html>

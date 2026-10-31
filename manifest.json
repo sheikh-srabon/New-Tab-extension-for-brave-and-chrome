@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "New Tab Pro \u2014 DEV PHENTOM",
+  "version": "2.0.0",
+  "description": "A personal dark productivity dashboard with analog and digital clocks, Quran ayat, tasks, notes and shortcuts.",
+  "permissions": [
+    "storage",
+    "alarms"
+  ],
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  }
+}
